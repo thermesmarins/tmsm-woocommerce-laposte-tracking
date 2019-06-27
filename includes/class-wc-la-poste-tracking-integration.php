@@ -13,7 +13,7 @@ class WC_La_Poste_Tracking_Integration extends WC_Integration {
 		
 		$this->id                 = 'la_poste_tracking';
 		$this->method_title       = __( 'La Poste Tracking', 'tmsm-woocommerce-laposte-tracking' );
-		$this->method_description = sprintf( __( 'Allow shipment tracking using the La Poste API. Ket your API key here: %s', 'tmsm-woocommerce-laposte-tracking' ), '<a href="https://developer.laposte.com">La Poste Developer</a>' );
+		$this->method_description = sprintf( __( 'Allow shipment tracking using the La Poste API. Get your API key here: %s', 'tmsm-woocommerce-laposte-tracking' ), '<a href="https://developer.laposte.fr">La Poste Developer</a>' );
 		
 		// Load the settings.
 		$this->init_form_fields();

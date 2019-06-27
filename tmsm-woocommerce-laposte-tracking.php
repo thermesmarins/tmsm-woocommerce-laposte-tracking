@@ -10,7 +10,7 @@
 	Domain Path: /languages
     License:           GNU General Public License v3.0
     License URI:       http://www.gnu.org/licenses/gpl-3.0.html
-	Github Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-dialoginsight
+	Github Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-laposte-tracking
     Github Branch:     master
     Requires PHP:      7.0
 */

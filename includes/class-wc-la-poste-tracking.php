@@ -556,7 +556,7 @@ class WC_La_Poste_Tracking_Actions {
 	*/
 	public function get_formatted_response( $response ) {
 
-		return ucwords( strtolower( str_replace( '_', ' ', $response ) ) );
+		return ( ( str_replace( '_', ' ', $response ) ) );
 
 	}
 

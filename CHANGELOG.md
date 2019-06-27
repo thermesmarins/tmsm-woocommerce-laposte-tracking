@@ -8,7 +8,7 @@
 * Update FR translation
 * Tracking information in email reformatted
 * Tracking information moved after order items table in order email
-* Remove use of id for order,u se get_id() instead
+* Remove use of id for order, use get_id() instead
 * Check if status exists before comparing new and current
 * Requires PHP 7.0
 
