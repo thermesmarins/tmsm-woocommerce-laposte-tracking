@@ -2,6 +2,7 @@
 * Adds TMSM logo
 * Update Readme
 * Update changelog
+* Fix text domain path
 
 ### 1.0.0: February 2nd, 2017
 Version by Rémy Corson https://github.com/corsonr/

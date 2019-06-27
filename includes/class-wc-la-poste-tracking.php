@@ -38,7 +38,7 @@ class WC_La_Poste_Tracking_Actions {
 	 * Localisation.
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'tracking-la-poste-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'tracking-la-poste-for-woocommerce', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/' );
 	}
 
 	public function admin_styles() {
