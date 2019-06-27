@@ -12,4 +12,4 @@
 * Check if status exists before comparing new and current
 
 ### 1.0.0: February 2nd, 2017
-Version by Rémy Corson https://github.com/corsonr/
+Version by Rémi Corson https://github.com/corsonr/

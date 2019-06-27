@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2019-06-27 11:15+0200\n"
-"PO-Revision-Date: 2019-06-27 11:15+0200\n"
+"POT-Creation-Date: 2019-06-27 13:33+0200\n"
+"PO-Revision-Date: 2019-06-27 13:40+0200\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Wp Trads <contact@wolforg.eu>\n"
 "Language: fr_FR\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: includes/class-wc-la-poste-tracking-cron.php:43
 #, php-format
 msgid "Every %d minutes"
-msgstr ""
+msgstr "Toutes les %d minutes"
 
 #: includes/class-wc-la-poste-tracking-integration.php:15
 #: includes/class-wc-la-poste-tracking.php:58
@@ -38,29 +38,30 @@ msgstr "Suivi La Poste"
 msgid ""
 "Allow shipment tracking using the La Poste API. Ket your API key here: %s"
 msgstr ""
+"Permet le suivi d’expédition avec l’API La Poste. Obtenir votre clé API "
+"ici : %s"
 
 #: includes/class-wc-la-poste-tracking-integration.php:36
 msgid "API Key"
-msgstr ""
+msgstr "Clé API"
 
 #: includes/class-wc-la-poste-tracking-integration.php:38
 msgid "Enter with your API Key."
-msgstr ""
+msgstr "Saisir la clé API."
 
 #: includes/class-wc-la-poste-tracking-integration.php:43
 msgid "API Sandbox Key"
-msgstr ""
+msgstr "Clé API sandbox"
 
 #: includes/class-wc-la-poste-tracking-integration.php:45
 msgid "Enter with your API Sandbox Key (used for testing)."
-msgstr ""
+msgstr "Saisir votre clé API sandbox (pour tester)."
 
 #: includes/class-wc-la-poste-tracking.php:129
 msgid "Code"
 msgstr "Code"
 
 #: includes/class-wc-la-poste-tracking.php:132
-#: templates/email/tracking-info.php:24 templates/email/tracking-info.php:39
 #: templates/myaccount/view-order.php:24 templates/myaccount/view-order.php:38
 msgid "Status"
 msgstr "Statut"
@@ -70,7 +71,6 @@ msgid "Type"
 msgstr "Type"
 
 #: includes/class-wc-la-poste-tracking.php:140
-#: templates/email/tracking-info.php:23 templates/email/tracking-info.php:36
 #: templates/myaccount/view-order.php:23 templates/myaccount/view-order.php:35
 msgid "Date"
 msgstr "Date"
@@ -91,8 +91,7 @@ msgid "Click here to track your shipment"
 msgstr "Cliquez ici pour suivre votre expédition"
 
 #: includes/class-wc-la-poste-tracking.php:150
-#: templates/email/tracking-info.php:43 templates/myaccount/view-order.php:42
-#: templates/pip/tracking-info.php:23
+#: templates/myaccount/view-order.php:42 templates/pip/tracking-info.php:23
 msgid "Track"
 msgstr "Suivi"
 
@@ -134,17 +133,21 @@ msgstr ""
 msgid "TRACKING INFORMATION"
 msgstr "INFORMATION DE SUIVI"
 
-#: templates/email/tracking-info.php:16 templates/myaccount/view-order.php:17
+#: templates/email/tracking-info.php:17 templates/myaccount/view-order.php:17
 #: templates/pip/tracking-info.php:17 templates/pip/tracking-info.php:21
 msgid "Tracking Information"
 msgstr "Information de suivi"
 
-#: templates/email/tracking-info.php:22 templates/email/tracking-info.php:33
+#: templates/email/tracking-info.php:22
+#, php-format
+msgid "Your product has been shipped. The tracking number is: %s"
+msgstr "Votre produit a été expédié. Le numéro de suivi est : %s"
+
 #: templates/myaccount/view-order.php:22 templates/myaccount/view-order.php:32
 msgid "Tracking Number"
 msgstr "Numéro de suivi"
 
-#: templates/email/tracking-info.php:43 templates/myaccount/view-order.php:42
+#: templates/myaccount/view-order.php:42
 msgid "Tracking unavailable"
 msgstr "Suivi indisponible"
 
