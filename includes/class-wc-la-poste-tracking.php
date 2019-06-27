@@ -394,8 +394,6 @@ class WC_La_Poste_Tracking_Actions {
 	 */
 	public function check_for_shipments_statuses_to_update() {
 
-		error_log('check_for_shipments_statuses_to_update');
-
 		do_action( 'wc_la_poste_tracking_before_automatic_update_check' );
 		
 		$args = array(
