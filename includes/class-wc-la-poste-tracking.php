@@ -370,16 +370,19 @@ class WC_La_Poste_Tracking_Actions {
 	/**
 	 * Display shipment info in customer emails.
 	 *
-	 * @access public
+	 * @param      $order WC_Order
+	 * @param      $sent_to_admin bool
+	 * @param null $plain_text
+	 *
 	 * @return void
 	 */
 	public function email_display( $order, $sent_to_admin, $plain_text = null ) {
 
 		if ( $plain_text === true ) {
-			wc_get_template( 'email/plain/tracking-info.php', array( 'tracking_items' => $this->get_tracking_items( $order->id, true ) ), 'tracking-la-poste-for-woocommerce/', $this->get_plugin_path() . '/templates/' );
+			wc_get_template( 'email/plain/tracking-info.php', array( 'tracking_items' => $this->get_tracking_items( $order->get_id(), true ) ), 'tracking-la-poste-for-woocommerce/', $this->get_plugin_path() . '/templates/' );
 		}
 		else {
-			wc_get_template( 'email/tracking-info.php', array( 'tracking_items' => $this->get_tracking_items( $order->id, true ) ), 'tracking-la-poste-for-woocommerce/', $this->get_plugin_path() . '/templates/' );
+			wc_get_template( 'email/tracking-info.php', array( 'tracking_items' => $this->get_tracking_items( $order->get_id(), true ) ), 'tracking-la-poste-for-woocommerce/', $this->get_plugin_path() . '/templates/' );
 		}
 	}
 	
@@ -419,7 +422,7 @@ class WC_La_Poste_Tracking_Actions {
 		foreach ( $query->posts as $order_post ) {
 			
 			$order = new WC_Order( $order_post );
-			$shipments = get_post_meta( $order->id, '_WC_La_Poste_Tracking_items', true );
+			$shipments = get_post_meta( $order->get_id(), '_WC_La_Poste_Tracking_items', true );
 			
 			foreach( $shipments as $shipment ) {
 				
@@ -448,7 +451,7 @@ class WC_La_Poste_Tracking_Actions {
 							'date_shipped'             => wc_clean( $shipment[ 'tracking_date' ] )
 						);
 			
-						$this->add_tracking_item( $order->id, $args );
+						$this->add_tracking_item( $order->get_id(), $args );
 						
 					}
 				}
@@ -483,7 +486,7 @@ class WC_La_Poste_Tracking_Actions {
 	 */
 	public function add_la_poste_tracking_info_to_csv_export_column_data( $order_data, $order, $csv_generator ) {
 
-		$tracking_items   = $this->get_tracking_items( $order->id, true );
+		$tracking_items   = $this->get_tracking_items( $order->get_id(), true );
 		$new_order_data   = array();
 		$one_row_per_item = false;
 

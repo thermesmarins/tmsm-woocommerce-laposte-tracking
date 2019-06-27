@@ -31,7 +31,7 @@ class WC_La_Poste_Tracking_XML_Export_Compat {
 	 */
 	public function add_fields_to_xml_export_order_format( $format, $order ) {
 
-		$tracking_items             = $GLOBALS['WC_La_Poste_Tracking']->actions->get_tracking_items( $order->id, true );
+		$tracking_items             = $GLOBALS['WC_La_Poste_Tracking']->actions->get_tracking_items( $order->get_id(), true );
 		$format['LaPosteTracking'] = array();
 
 		// bail if we have no tracking items

@@ -87,7 +87,7 @@ class WC_La_Poste_Tracking_PIP_Compat {
 	 */
 	public function display_la_poste_tracking( $document_type, $action, $document, $order ) {
 		$sta   = WC_La_Poste_Tracking_Actions::get_instance();
-		$items = $sta->get_tracking_items( $order->id, true );
+		$items = $sta->get_tracking_items( $order->get_id(), true );
 
 		if ( empty( $items ) ) {
 			return;
