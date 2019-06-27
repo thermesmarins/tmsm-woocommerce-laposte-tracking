@@ -37,13 +37,13 @@ class WC_La_Poste_Tracking_PIP_Compat {
 			$settings,
 			array(
 				array(
-					'name' => __( 'La Poste Tracking', 'tracking-la-poste-for-woocommerce' ),
+					'name' => __( 'La Poste Tracking', 'tmsm-woocommerce-laposte-tracking' ),
 					'type' => 'title',
 				),
 				array(
 					'id'      => 'woocommerce_pip_la_poste_tracking',
-					'name'    => __( 'La Poste tracking', 'tracking-la-poste-for-woocommerce' ),
-					'desc'    => __( 'Select which document types should display shipment tracking.', 'tracking-la-poste-for-woocommerce' ),
+					'name'    => __( 'La Poste tracking', 'tmsm-woocommerce-laposte-tracking' ),
+					'desc'    => __( 'Select which document types should display shipment tracking.', 'tmsm-woocommerce-laposte-tracking' ),
 					'type'    => 'multiselect',
 					'class'   => 'wc-enhanced-select',
 					'options' => wc_pip()->get_document_types(),

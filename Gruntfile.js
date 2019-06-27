@@ -105,7 +105,7 @@ module.exports = function( grunt ){
 		// Check the textdomain
 		checktextdomain: {
 			options:{
-				text_domain: 'tracking-la-poste-for-woocommerce',
+				text_domain: 'tmsm-woocommerce-laposte-tracking',
 				keywords: [
 					'__:1,2d',
 					'_e:1,2d',

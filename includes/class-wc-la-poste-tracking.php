@@ -38,7 +38,7 @@ class WC_La_Poste_Tracking_Actions {
 	 * Localisation.
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'tracking-la-poste-for-woocommerce', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/' );
+		load_plugin_textdomain( 'tmsm-woocommerce-laposte-tracking', false, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/' );
 	}
 
 	public function admin_styles() {
@@ -55,7 +55,7 @@ class WC_La_Poste_Tracking_Actions {
 	 * @return array Altered columns
 	 */
 	public function shop_order_columns( $columns ) {
-		$columns['la_poste_tracking'] = __( 'La Poste Tracking', 'tracking-la-poste-for-woocommerce' );
+		$columns['la_poste_tracking'] = __( 'La Poste Tracking', 'tmsm-woocommerce-laposte-tracking' );
 		return $columns;
 	}
 
@@ -113,7 +113,7 @@ class WC_La_Poste_Tracking_Actions {
 	 * @access public
 	 */
 	public function add_meta_box() {
-		add_meta_box( 'la-poste-tracking-for-woocommerce', __( 'La Poste Tracking', 'tracking-la-poste-for-woocommerce' ), array( $this, 'meta_box' ), 'shop_order', 'side', 'high' );
+		add_meta_box( 'la-poste-tracking-for-woocommerce', __( 'La Poste Tracking', 'tmsm-woocommerce-laposte-tracking' ), array( $this, 'meta_box' ), 'shop_order', 'side', 'high' );
 	}
 
 	/**
@@ -126,30 +126,30 @@ class WC_La_Poste_Tracking_Actions {
 			?>
 			<div class="tracking-item" id="tracking-item-<?php echo esc_attr( $item[ 'tracking_id' ] ); ?>">
 				<p class="tracking-content">
-					<strong><?php _e( 'Code', 'tracking-la-poste-for-woocommerce' ); ?> : </strong><?php echo esc_html( $item[ 'tracking_number' ] ); ?>
+					<strong><?php _e( 'Code', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $item[ 'tracking_number' ] ); ?>
 					<?php if( $item[ 'tracking_status' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Status', 'tracking-la-poste-for-woocommerce' ); ?> : </strong><?php echo esc_html( $item[ 'tracking_status' ] ); ?>
+					<strong><?php _e( 'Status', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $item[ 'tracking_status' ] ); ?>
 					<?php } ?>
 					<?php if( $item[ 'tracking_type' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Type', 'tracking-la-poste-for-woocommerce' ); ?> : </strong><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_type' ] ) ); ?>
+					<strong><?php _e( 'Type', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_type' ] ) ); ?>
 					<?php } ?>
 					<?php if( $item[ 'tracking_date' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Date', 'tracking-la-poste-for-woocommerce' ); ?> : </strong><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_date' ] ) ); ?>
+					<strong><?php _e( 'Date', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_date' ] ) ); ?>
 					<?php } ?>
 					<?php if( $item[ 'tracking_message' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Message', 'tracking-la-poste-for-woocommerce' ); ?> : </strong><em><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_message' ] ) ); ?></em>
+					<strong><?php _e( 'Message', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><em><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_message' ] ) ); ?></em>
 					<?php } ?>
 				</p>
 				<p class="meta">
-					<?php echo esc_html( sprintf( __( 'Shipped on %s', 'tracking-la-poste-for-woocommerce' ), date_i18n( 'Y-m-d', $item[ 'date_shipped' ] ) ) ); ?>
+					<?php echo esc_html( sprintf( __( 'Shipped on %s', 'tmsm-woocommerce-laposte-tracking' ), date_i18n( 'Y-m-d', $item[ 'date_shipped' ] ) ) ); ?>
 					<?php if( strlen( $item[ 'tracking_link' ] ) > 0 ) : ?>
-						| <?php echo sprintf( '<a href="%s" target="_blank" title="' . esc_attr( __( 'Click here to track your shipment', 'tracking-la-poste-for-woocommerce' ) ) . '">' . __( 'Track', 'tracking-la-poste-for-woocommerce' ) . '</a>', $item[ 'tracking_link' ] ); ?>
+						| <?php echo sprintf( '<a href="%s" target="_blank" title="' . esc_attr( __( 'Click here to track your shipment', 'tmsm-woocommerce-laposte-tracking' ) ) . '">' . __( 'Track', 'tmsm-woocommerce-laposte-tracking' ) . '</a>', $item[ 'tracking_link' ] ); ?>
 					<?php endif; ?>
-					- <a href="#" class="delete-tracking" rel="<?php echo esc_attr( $item[ 'tracking_id' ] ); ?>"><?php _e( 'Delete', 'tracking-la-poste-for-woocommerce' ); ?></a>
+					- <a href="#" class="delete-tracking" rel="<?php echo esc_attr( $item[ 'tracking_id' ] ); ?>"><?php _e( 'Delete', 'tmsm-woocommerce-laposte-tracking' ); ?></a>
 				</p>
 			</div>
 			<?php
@@ -176,7 +176,7 @@ class WC_La_Poste_Tracking_Actions {
 
 		echo '</div>';
 
-		echo '<button class="button button-show-form" type="button">' . __( 'Add Tracking Number', 'tracking-la-poste-for-woocommerce' ) . '</button>';
+		echo '<button class="button button-show-form" type="button">' . __( 'Add Tracking Number', 'tmsm-woocommerce-laposte-tracking' ) . '</button>';
 
 		echo '<div id="la-poste-tracking-form">';
 
@@ -192,7 +192,7 @@ class WC_La_Poste_Tracking_Actions {
 
 		woocommerce_wp_text_input( array(
 			'id'          => 'tracking_number',
-			'label'       => __( 'La Poste Tracking Number:', 'tracking-la-poste-for-woocommerce' ),
+			'label'       => __( 'La Poste Tracking Number:', 'tmsm-woocommerce-laposte-tracking' ),
 			'placeholder' => '',
 			'description' => '',
 			'value'       => ''
@@ -200,11 +200,11 @@ class WC_La_Poste_Tracking_Actions {
 		
 		woocommerce_wp_text_input( array(
 			'id'          => 'date_shipped',
-			'label'       => __( 'Date shipped:', 'tracking-la-poste-for-woocommerce' ),
-			'placeholder' => date_i18n( __( 'Y-m-d', 'tracking-la-poste-for-woocommerce' ), time() ),
+			'label'       => __( 'Date shipped:', 'tmsm-woocommerce-laposte-tracking' ),
+			'placeholder' => date_i18n( __( 'Y-m-d', 'tmsm-woocommerce-laposte-tracking' ), time() ),
 			'description' => '',
 			'class'       => 'date-picker-field',
-			'value'       => date_i18n( __( 'Y-m-d', 'tracking-la-poste-for-woocommerce' ), current_time( 'timestamp' ) )
+			'value'       => date_i18n( __( 'Y-m-d', 'tmsm-woocommerce-laposte-tracking' ), current_time( 'timestamp' ) )
 		) );
 		
 		woocommerce_wp_hidden_input( array(
@@ -233,7 +233,7 @@ class WC_La_Poste_Tracking_Actions {
 		) );
 		
 
-		echo '<button class="button button-primary button-save-form">' . __( 'Save Tracking Number', 'tracking-la-poste-for-woocommerce' ) . '</button>';
+		echo '<button class="button button-primary button-save-form">' . __( 'Save Tracking Number', 'tmsm-woocommerce-laposte-tracking' ) . '</button>';
 
 		echo '</div>';
 

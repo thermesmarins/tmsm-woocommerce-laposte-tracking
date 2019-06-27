@@ -40,7 +40,7 @@ class WC_La_Poste_Tracking_Cron {
 		$interval = apply_filters( 'wc_la_poste_tracking_update_check_interval', 3600, $schedules );
 		$schedules['wc_la_poste_tracking_update_check'] = array(
 			'interval' => $interval,
-			'display'  => sprintf( __( 'Every %d minutes', 'tracking-la-poste-for-woocommerce' ), $interval / 60 )
+			'display'  => sprintf( __( 'Every %d minutes', 'tmsm-woocommerce-laposte-tracking' ), $interval / 60 )
 		);
 		return $schedules;
 	}

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $tracking_items ) : 
 	
-	echo apply_filters( 'woocommerce_la_poste_tracking_my_orders_title', __( 'TRACKING INFORMATION', 'tracking-la-poste-for-woocommerce' ) ); 
+	echo apply_filters( 'woocommerce_la_poste_tracking_my_orders_title', __( 'TRACKING INFORMATION', 'tmsm-woocommerce-laposte-tracking' ) );
 
 		echo  "\n";
 

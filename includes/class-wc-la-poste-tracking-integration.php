@@ -12,8 +12,8 @@ class WC_La_Poste_Tracking_Integration extends WC_Integration {
 		global $woocommerce;
 		
 		$this->id                 = 'la_poste_tracking';
-		$this->method_title       = __( 'La Poste Tracking', 'tracking-la-poste-for-woocommerce' );
-		$this->method_description = sprintf( __( 'Allow shipment tracking using the La Poste API. Ket your API key here: %s', 'tracking-la-poste-for-woocommerce' ), '<a href="https://developer.laposte.com">La Poste Developer</a>' );
+		$this->method_title       = __( 'La Poste Tracking', 'tmsm-woocommerce-laposte-tracking' );
+		$this->method_description = sprintf( __( 'Allow shipment tracking using the La Poste API. Ket your API key here: %s', 'tmsm-woocommerce-laposte-tracking' ), '<a href="https://developer.laposte.com">La Poste Developer</a>' );
 		
 		// Load the settings.
 		$this->init_form_fields();
@@ -33,16 +33,16 @@ class WC_La_Poste_Tracking_Integration extends WC_Integration {
 	public function init_form_fields() {
 		$this->form_fields = array(
 			'api_key' => array(
-				'title'             => __( 'API Key', 'tracking-la-poste-for-woocommerce' ),
+				'title'             => __( 'API Key', 'tmsm-woocommerce-laposte-tracking' ),
 				'type'              => 'text',
-				'description'       => __( 'Enter with your API Key.', 'tracking-la-poste-for-woocommerce' ),
+				'description'       => __( 'Enter with your API Key.', 'tmsm-woocommerce-laposte-tracking' ),
 				'desc_tip'          => true,
 				'default'           => ''
 			),
 			'api_sandbox_key' => array(
-				'title'             => __( 'API Sandbox Key', 'tracking-la-poste-for-woocommerce' ),
+				'title'             => __( 'API Sandbox Key', 'tmsm-woocommerce-laposte-tracking' ),
 				'type'              => 'text',
-				'description'       => __( 'Enter with your API Sandbox Key (used for testing).', 'tracking-la-poste-for-woocommerce' ),
+				'description'       => __( 'Enter with your API Sandbox Key (used for testing).', 'tmsm-woocommerce-laposte-tracking' ),
 				'desc_tip'          => true,
 				'default'           => ''
 			),
