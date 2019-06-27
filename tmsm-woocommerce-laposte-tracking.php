@@ -1,18 +1,18 @@
 <?php
 /*
-	Plugin Name: La Poste Tracking for WooCommerce
-	Plugin URI: http://www.remicorson.com/
+	Plugin Name: TMSM WooCommerce La Poste Tracking
+	Plugin URI: http://www.nicolasmollet.com/
 	Description: Add tracking number to order package and update status dynamically.
-	Version: 1.0
-	Author: Remi Corson
-	Author URI: http://www.remicorson.com/
-	Text Domain: tracking-la-poste-for-woocommerce
+	Version: 1.0.1
+	Author: Nicolas Mollet (see readme for additionnal authors)
+	Author URI: https://github.com/thermesmarins
+	Text Domain: tmsm-woocommerce-laposte-tracking
 	Domain Path: /languages
-
-	Copyright: © 2017 Remi Corson.
-	License: GNU General Public License v3.0
-	License URI: http://www.gnu.org/licenses/gpl-3.0.html
-	Shipment tracking URL: http://www.colissimo.fr/portail_colissimo/suivre.do?language=fr_FR&colispart=xxx
+    License:           GNU General Public License v3.0
+    License URI:       http://www.gnu.org/licenses/gpl-3.0.html
+	Github Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-dialoginsight
+    Github Branch:     master
+    Requires PHP:      5.6
 */
 
 /**
