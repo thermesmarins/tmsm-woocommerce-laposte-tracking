@@ -1,4 +1,7 @@
-### 1.0.1: October 31st, 2018
+### 1.0.2: June 27th, 2019
+* Force default tracking URL if empty
+
+### 1.0.1: June 27th, 2019
 * Development resumed by Nicolas Mollet https://github.com/nicomollet/
 * Adds TMSM logo
 * Update Readme
