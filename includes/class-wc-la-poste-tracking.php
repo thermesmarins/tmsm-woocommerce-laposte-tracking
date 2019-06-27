@@ -392,20 +392,16 @@ class WC_La_Poste_Tracking_Actions {
 	 * @since 1.0
 	 */
 	public function check_for_shipments_statuses_to_update() {
-		
+
+		error_log('check_for_shipments_statuses_to_update');
+
 		do_action( 'wc_la_poste_tracking_before_automatic_update_check' );
 		
 		$args = array(
 			'fields'      => 'ids',
 			'post_type'   => 'shop_order',
 			'post_status' 	 => 'wc-completed',
-			'date_query' => array(
-								array(
-									'column' => 'post_modified_gmt',
-									'after'     => apply_filters( 'wc_la_poste_tracking_status_check_period', '1 week ago'),
-									'inclusive' => true,
-								),
-							),		
+
 			'meta_query' => array(
 				array(
 					'key'   	=> '_WC_La_Poste_Tracking_items',
@@ -420,7 +416,7 @@ class WC_La_Poste_Tracking_Actions {
 		}
 		
 		foreach ( $query->posts as $order_post ) {
-			
+
 			$order = new WC_Order( $order_post );
 			$shipments = get_post_meta( $order->get_id(), '_WC_La_Poste_Tracking_items', true );
 			
@@ -430,13 +426,17 @@ class WC_La_Poste_Tracking_Actions {
 				if ( $shipment === end( $shipments )) {
 					
 					$new_shipment_data = $this->get_shipment_tracking( $shipment[ 'tracking_number' ] );
-					
+
 					$current_shipment_status = $shipment[ 'tracking_status' ];
-					$new_shipment_status = $new_shipment_data->status;
-					
+					if(!empty($new_shipment_data->status)){
+						$new_shipment_status = $new_shipment_data->status;
+					}
+
 					$current_shipment_message = $shipment[ 'tracking_message' ];
-					$new_shipment_message = $new_shipment_data->message;
-					
+					if(!empty($new_shipment_data->message)){
+						$new_shipment_message = $new_shipment_data->message;
+					}
+
 					if( $new_shipment_status == $current_shipment_status || $new_shipment_message == $current_shipment_message ) {
 						return;
 					} else {
