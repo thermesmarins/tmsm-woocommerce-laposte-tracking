@@ -12,7 +12,7 @@
     License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 	Github Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-dialoginsight
     Github Branch:     master
-    Requires PHP:      5.6
+    Requires PHP:      7.0
 */
 
 /**
