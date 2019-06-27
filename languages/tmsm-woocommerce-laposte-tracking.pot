@@ -1,30 +1,29 @@
 # Copyright (C) 2016 Remi Corson
 # This file is distributed under the GNU General Public License v3.0.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: La Poste Tracking for WooCommerce 1.0\n"
+"Project-Id-Version: TMSM WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2016-11-24 16:26:40+00:00\n"
+"POT-Creation-Date: 2019-06-27 11:14+0200\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: YOUR TEAM <YOUR-EMAIL@ADDRESS>\n"
-"X-Generator: grunt-wp-i18n 0.5.4\n"
+"Language-Team: https://github.com/thermesmarins/\n"
+"X-Generator: Poedit 2.0.8\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c;_nc:1,2;_x:1,"
-"2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-Bookmarks: \n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-wc-la-poste-tracking-cron.php:43
+#, php-format
 msgid "Every %d minutes"
 msgstr ""
 
@@ -36,6 +35,7 @@ msgid "La Poste Tracking"
 msgstr ""
 
 #: includes/class-wc-la-poste-tracking-integration.php:16
+#, php-format
 msgid "Allow shipment tracking using the La Poste API. Ket your API key here: %s"
 msgstr ""
 
@@ -79,13 +79,12 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:148
-#: templates/pip/tracking-info.php:28
+#: includes/class-wc-la-poste-tracking.php:148 templates/pip/tracking-info.php:28
+#, php-format
 msgid "Shipped on %s"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:150
-#: templates/pip/tracking-info.php:23
+#: includes/class-wc-la-poste-tracking.php:150 templates/pip/tracking-info.php:23
 msgid "Click here to track your shipment"
 msgstr ""
 
@@ -144,20 +143,4 @@ msgstr ""
 
 #: templates/email/tracking-info.php:43 templates/myaccount/view-order.php:42
 msgid "Tracking unavailable"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "La Poste Tracking for WooCommerce"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://www.remicorson.com/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "Add tracking number to order package and update status dynamically."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Remi Corson"
 msgstr ""

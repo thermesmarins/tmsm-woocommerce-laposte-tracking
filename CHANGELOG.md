@@ -4,6 +4,8 @@
 * Update changelog
 * Fix text domain path
 * Change text domain
+* Update FR translation
+* Tracking information in email reformatted
 
 ### 1.0.0: February 2nd, 2017
 Version by Rémy Corson https://github.com/corsonr/
