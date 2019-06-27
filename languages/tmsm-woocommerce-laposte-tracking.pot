@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2019-06-27 13:33+0200\n"
+"POT-Creation-Date: 2019-06-27 14:33+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: includes/class-wc-la-poste-tracking-integration.php:16
 #, php-format
-msgid "Allow shipment tracking using the La Poste API. Ket your API key here: %s"
+msgid "Allow shipment tracking using the La Poste API. Get your API key here: %s"
 msgstr ""
 
 #: includes/class-wc-la-poste-tracking-integration.php:36

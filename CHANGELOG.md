@@ -1,3 +1,5 @@
+* Avoid undefined vars
+
 ### 1.0.2: June 27th, 2019
 * Force default tracking URL if empty
 

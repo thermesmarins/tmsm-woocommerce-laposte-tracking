@@ -426,6 +426,9 @@ class WC_La_Poste_Tracking_Actions {
 					
 					$new_shipment_data = $this->get_shipment_tracking( $shipment[ 'tracking_number' ] );
 
+					$new_shipment_status = null;
+					$new_shipment_message = null;
+
 					$current_shipment_status = $shipment[ 'tracking_status' ];
 					if(!empty($new_shipment_data->status)){
 						$new_shipment_status = $new_shipment_data->status;
