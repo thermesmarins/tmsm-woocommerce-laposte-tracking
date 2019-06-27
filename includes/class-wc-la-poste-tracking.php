@@ -332,7 +332,7 @@ class WC_La_Poste_Tracking_Actions {
 				'tracking_type'            => $tracking->type ?? null,
 				'tracking_date'            => $tracking->date ?? null,
 				'tracking_message'         => $tracking->message ?? null,
-				'tracking_link'            => $tracking->link ?? null,
+				'tracking_link'            => $tracking->link ?? 'https://www.laposte.fr/outils/suivre-vos-envois?code='.wc_clean( $_POST[ 'tracking_number' ] ),
 				'date_shipped'             => wc_clean( $_POST[ 'date_shipped' ] )
 			);
 
