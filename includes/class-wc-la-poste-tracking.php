@@ -299,11 +299,11 @@ class WC_La_Poste_Tracking_Actions {
 			$tracking = $this->get_shipment_tracking( $_POST['tracking_number'] );
 			$args = array(
 				'tracking_number'          => wc_clean( $_POST[ 'tracking_number' ] ),
-				'tracking_status'          => $tracking->status,
-				'tracking_type'            => $tracking->type,
-				'tracking_date'            => $tracking->date,
-				'tracking_message'         => $tracking->message,
-				'tracking_link'            => $tracking->link,
+				'tracking_status'          => $tracking->status ?? null,
+				'tracking_type'            => $tracking->type ?? null,
+				'tracking_date'            => $tracking->date ?? null,
+				'tracking_message'         => $tracking->message ?? null,
+				'tracking_link'            => $tracking->link ?? 'https://www.laposte.fr/outils/suivre-vos-envois?code='.wc_clean( $_POST[ 'tracking_number' ] ),
 				'date_shipped'             => wc_clean( $_POST[ 'date_shipped' ] )
 			);
 
