@@ -6,6 +6,7 @@
 * Change text domain
 * Update FR translation
 * Tracking information in email reformatted
+* Tracking information moved after order items table in order email
 
 ### 1.0.0: February 2nd, 2017
 Version by Rémy Corson https://github.com/corsonr/

@@ -54,7 +54,7 @@ if ( ! class_exists( 'WC_La_Poste_Tracking' ) ) {
 
 			// View Order Page
 			add_action( 'woocommerce_view_order', array( $this->actions, 'display_tracking_info' ) );
-			add_action( 'woocommerce_email_before_order_table', array( $this->actions, 'email_display' ), 0, 3 );
+			add_action( 'woocommerce_email_after_order_table', array( $this->actions, 'email_display' ), 0, 3 );
 
 			// Custom tracking column in admin orders list.
 			add_filter( 'manage_shop_order_posts_columns', array( $this->actions, 'shop_order_columns' ), 99 );
