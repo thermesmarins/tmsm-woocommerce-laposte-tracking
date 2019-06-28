@@ -1,4 +1,7 @@
+### 1.0.3: June 28th, 2019
 * Avoid undefined vars
+* Avoid trying to get property of non-object
+* Tracking information only displays one item
 * Avoid trying to get property of non-object
 
 ### 1.0.2: June 27th, 2019

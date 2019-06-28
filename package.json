@@ -1,6 +1,6 @@
 {
   "name": "tmsm-woocommerce-laposte-tracking",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "WooCommerce add-on to track shipments via La Poste API",
   "main": "Gruntfile.js",
   "Dependencies": {
