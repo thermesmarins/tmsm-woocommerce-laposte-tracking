@@ -264,6 +264,9 @@ class WC_La_Poste_Tracking_Actions {
 	public function get_shipment_tracking( $code = '' ) {
 		
 		global $post;
+		if ( empty( $post ) ) {
+			return;
+		}
 		$order_id = $post->ID;
 
 		$options = get_option( 'woocommerce_la_poste_tracking_settings', array() );
@@ -429,13 +432,13 @@ class WC_La_Poste_Tracking_Actions {
 					$new_shipment_status = null;
 					$new_shipment_message = null;
 
-					$current_shipment_status = $shipment[ 'tracking_status' ];
-					if(!empty($new_shipment_data->status)){
+					$current_shipment_status = $shipment['tracking_status'];
+					if ( ! empty( $new_shipment_data ) && ! empty( $new_shipment_data->status ) ) {
 						$new_shipment_status = $new_shipment_data->status;
 					}
 
-					$current_shipment_message = $shipment[ 'tracking_message' ];
-					if(!empty($new_shipment_data->message)){
+					$current_shipment_message = $shipment['tracking_message'];
+					if ( ! empty( $new_shipment_data ) && ! empty( $new_shipment_data->message ) ) {
 						$new_shipment_message = $new_shipment_data->message;
 					}
 
