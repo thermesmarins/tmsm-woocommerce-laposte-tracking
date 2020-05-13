@@ -5,7 +5,8 @@
  * Shows tracking information in the HTML order email
  *
  * @author  Nicolas Mollet
- * @version 1.0.1
+ * @author  Remi Corson
+ * @version 1.0.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,19 +17,13 @@ if ( $tracking_items ) : ?>
 	<h2><?php echo apply_filters( 'woocommerce_la_poste_tracking_my_orders_title',
 			__( 'Tracking Information', 'tmsm-woocommerce-laposte-tracking' ) ); ?></h2>
 	<?php
-
-	$counter = 0;
 	foreach ( $tracking_items as $tracking_item ) {
-		$counter ++;
-		if ( $counter === 1 ) {
-			?>
-			<p><?php printf( __( 'Your product has been shipped. The tracking number is: %s', 'tmsm-woocommerce-laposte-tracking' ),
-					'<a href="' . esc_url( $tracking_item['formatted_tracking_link'] ) . '">' . esc_html( $tracking_item['tracking_number'] )
-					. '</a>' ); ?>
-			</p>
 
-			<?php
-		}
+		?>
+		<p><?php echo __( 'Your package has been shipped. Your tracking code is:', 'tmsm-woocommerce-laposte-tracking' );?>
+			 <a href="https://www.laposte.fr/particulier/outils/suivre-vos-envois?code=<?php echo esc_html( $tracking_item[ 'tracking_number' ] ); ?>"><?php echo esc_html( $tracking_item[ 'tracking_number' ] ); ?></a></p>
+
+		<?php
 	}
 	?>
 

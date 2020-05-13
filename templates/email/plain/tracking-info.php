@@ -4,8 +4,9 @@
  *
  * Shows tracking information in the plain text order email
  *
+ * @author  Nicolas Mollet
  * @author  Remi Corson
- * @version 1.0
+ * @version 1.0.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +23,7 @@ if ( $tracking_items ) :
 			
 			echo esc_html( $tracking_item[ 'tracking_number' ] ) . "\n";
 			echo esc_html( $tracking_item[ 'tracking_message' ] ) . "\n";
-			echo esc_url( $tracking_item[ 'formatted_tracking_link' ] ) . "\n\n";
+			echo 'https://www.laposte.fr/particulier/outils/suivre-vos-envois?code='.esc_url( $tracking_item[ 'tracking_number' ] ) . "\n\n";
 			
 		}
 
