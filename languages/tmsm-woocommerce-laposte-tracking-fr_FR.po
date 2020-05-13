@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2020-05-13 16:13+0200\n"
-"PO-Revision-Date: 2020-05-13 16:13+0200\n"
+"POT-Creation-Date: 2020-05-13 16:30+0200\n"
+"PO-Revision-Date: 2020-05-13 16:31+0200\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Wp Trads <contact@wolforg.eu>\n"
 "Language: fr_FR\n"
@@ -94,7 +94,7 @@ msgid "Click here to track your shipment"
 msgstr "Cliquez ici pour suivre votre expédition"
 
 #: includes/class-wc-la-poste-tracking.php:164
-#: templates/myaccount/view-order.php:42 templates/pip/tracking-info.php:23
+#: templates/myaccount/view-order.php:43 templates/pip/tracking-info.php:23
 msgid "Track"
 msgstr "Suivi"
 
@@ -208,16 +208,16 @@ msgid "Select which document types should display shipment tracking."
 msgstr ""
 "Sélectionnez quels types de documents doivent afficher le suivi d’expédition."
 
-#: templates/email/plain/tracking-info.php:17
+#: templates/email/plain/tracking-info.php:18
 msgid "TRACKING INFORMATION"
 msgstr "INFORMATION DE SUIVI"
 
-#: templates/email/tracking-info.php:17 templates/myaccount/view-order.php:17
+#: templates/email/tracking-info.php:18 templates/myaccount/view-order.php:17
 #: templates/pip/tracking-info.php:17 templates/pip/tracking-info.php:21
 msgid "Tracking Information"
 msgstr "Information de suivi"
 
-#: templates/email/tracking-info.php:22
+#: templates/email/tracking-info.php:23
 msgid "Your package has been shipped. Your tracking code is:"
 msgstr "Votre colis a été expédié. Votre code de suivi est :"
 
@@ -225,7 +225,7 @@ msgstr "Votre colis a été expédié. Votre code de suivi est :"
 msgid "Tracking Number"
 msgstr "Numéro de suivi"
 
-#: templates/myaccount/view-order.php:23 templates/myaccount/view-order.php:35
+#: templates/myaccount/view-order.php:23
 msgid "Date"
 msgstr "Date"
 
@@ -233,7 +233,11 @@ msgstr "Date"
 msgid "Status"
 msgstr "Statut"
 
-#: templates/myaccount/view-order.php:42
+#: templates/myaccount/view-order.php:35
+msgid "Shipped"
+msgstr "Expédié"
+
+#: templates/myaccount/view-order.php:46
 msgid "Tracking unavailable"
 msgstr "Suivi indisponible"
 

@@ -32,14 +32,20 @@ if ( $tracking_items ) : ?>
 					<td class="tracking-number" data-title="<?php _e( 'Tracking Number', 'tmsm-woocommerce-laposte-tracking' ); ?>">
 						<?php echo $tracking_item[ 'tracking_number' ]; ?>
 					</td>
-					<td class="date-shipped" data-title="<?php _e( 'Date', 'tmsm-woocommerce-laposte-tracking' ); ?>" style="text-align:left; white-space:nowrap;">
-						<time datetime="<?php echo date( 'Y-m-d', $tracking_item[ 'date_shipped' ] ); ?>" title="<?php echo date( 'Y-m-d', $tracking_item[ 'date_shipped' ] ); ?>"><?php echo date_i18n( get_option( 'date_format' ), $tracking_item[ 'date_shipped' ] ); ?></time>
+					<td class="date-shipped" data-title="<?php _e( 'Shipped', 'tmsm-woocommerce-laposte-tracking' ); ?>" style="text-align:left; white-space:nowrap;">
+						<time datetime="<?php echo date( 'Y-m-d', $tracking_item[ 'date_shipped' ] ); ?>"><?php echo date_i18n( get_option( 'date_format' ), $tracking_item[ 'date_shipped' ] ); ?></time>
 					</td>
 					<td class="tracking-status" data-title="<?php _e( 'Status', 'tmsm-woocommerce-laposte-tracking' ); ?>">
-						<?php echo esc_html( $tracking_item[ 'tracking_message' ] ); ?>
+						<?php echo esc_html( $tracking_item[ 'tracking_status' ] ); ?>
 					</td>
 					<td class="order-actions" style="text-align: center;">
-							<?php if( $tracking_item[ 'tracking_link' ] ) : ?><a href="<?php echo esc_url( $tracking_item[ 'formatted_tracking_link' ] ); ?>" target="_blank" class="button"><?php _e( 'Track', 'tmsm-woocommerce-laposte-tracking' ); ?></a><?php else: ?><em><?php _e( 'Tracking unavailable', 'tmsm-woocommerce-laposte-tracking' ); ?></em><?php endif; ?>
+						<?php if ( $tracking_item['tracking_number'] ) { ?>
+							<a href="https://www.laposte.fr/particulier/outils/suivre-vos-envois?code=<?php echo esc_html( $tracking_item['tracking_number'] ); ?>" target="_blank" class="button"><?php _e( 'Track', 'tmsm-woocommerce-laposte-tracking' ); ?></a>
+							<?php
+						} else {
+							?><em><?php _e( 'Tracking unavailable', 'tmsm-woocommerce-laposte-tracking' ); ?></em>
+							<?php
+						} ?>
 					</td>
 				</tr><?php
 			}

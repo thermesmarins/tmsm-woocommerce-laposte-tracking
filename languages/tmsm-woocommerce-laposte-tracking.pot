@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2020-05-13 16:13+0200\n"
+"POT-Creation-Date: 2020-05-13 16:30+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -90,7 +90,7 @@ msgid "Click here to track your shipment"
 msgstr ""
 
 #: includes/class-wc-la-poste-tracking.php:164
-#: templates/myaccount/view-order.php:42 templates/pip/tracking-info.php:23
+#: templates/myaccount/view-order.php:43 templates/pip/tracking-info.php:23
 msgid "Track"
 msgstr ""
 
@@ -203,16 +203,16 @@ msgstr ""
 msgid "Select which document types should display shipment tracking."
 msgstr ""
 
-#: templates/email/plain/tracking-info.php:17
+#: templates/email/plain/tracking-info.php:18
 msgid "TRACKING INFORMATION"
 msgstr ""
 
-#: templates/email/tracking-info.php:17 templates/myaccount/view-order.php:17
+#: templates/email/tracking-info.php:18 templates/myaccount/view-order.php:17
 #: templates/pip/tracking-info.php:17 templates/pip/tracking-info.php:21
 msgid "Tracking Information"
 msgstr ""
 
-#: templates/email/tracking-info.php:22
+#: templates/email/tracking-info.php:23
 msgid "Your package has been shipped. Your tracking code is:"
 msgstr ""
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Tracking Number"
 msgstr ""
 
-#: templates/myaccount/view-order.php:23 templates/myaccount/view-order.php:35
+#: templates/myaccount/view-order.php:23
 msgid "Date"
 msgstr ""
 
@@ -228,6 +228,10 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: templates/myaccount/view-order.php:42
+#: templates/myaccount/view-order.php:35
+msgid "Shipped"
+msgstr ""
+
+#: templates/myaccount/view-order.php:46
 msgid "Tracking unavailable"
 msgstr ""
