@@ -26,6 +26,13 @@ class WC_La_Poste_Tracking_Actions {
     private static $instance;
 
 	/**
+	 * Absolute plugin path.
+	 *
+	 * @var string
+	 */
+	private $plugin_path;
+
+	/**
      * Get the class instance
 	 *
 	 * @return WC_La_Poste_Tracking_Actions
@@ -119,8 +126,12 @@ class WC_La_Poste_Tracking_Actions {
 	/**
 	 * Returns a HTML node for a tracking item for the admin meta box
 	 *
+	 * @param int $order_id
+	 * @param array $item
+	 *
 	 * @access public
 	 */
+
 	public function display_html_tracking_item_for_meta_box( $order_id, $item ) {
 			$formatted = $this->get_formatted_tracking_item( $order_id, $item );
 			?>
@@ -267,11 +278,9 @@ class WC_La_Poste_Tracking_Actions {
 	 * @param string $code
 	 * @param int $order_id
 	 *
-	 * @return array|mixed|void|WP_Error
+	 * @return array|mixed|WP_Error
 	 */
-	public function get_shipment_tracking( string $code = '', int $order_id ) {
-
-		error_log( 'get_shipment_tracking '. $code );
+	public function get_shipment_tracking( string $code, int $order_id ) {
 
 		$options = get_option( 'woocommerce_la_poste_tracking_settings', array() );
 
@@ -292,9 +301,6 @@ class WC_La_Poste_Tracking_Actions {
 
 		// v2
 		$endpoint = 'https://api.laposte.fr/suivi/v2/idships';
-
-		error_log( 'endpoint '. $endpoint );
-
 		$headers  = array(
 			'X-Okapi-Key' => $options['api_key'],
 			'Content-Type' => 'application/json',
@@ -308,12 +314,15 @@ class WC_La_Poste_Tracking_Actions {
 
 
 		$response_code = wp_remote_retrieve_response_code( $response );
+
+		// Check for valid API request
+		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+			return new \WP_Error( wp_remote_retrieve_response_code( $response ), wp_remote_retrieve_response_message( $response ) );
+		}
+
 		$response = json_decode( $response['body'] );
 
-		error_log( print_r( $response, true ) );
-
 		if( !empty($response) && !empty($response->returnCode)){
-			error_log('response is v2');
 			if($response->returnCode === 200){
 
 				$tracking_statuses = [
@@ -338,7 +347,6 @@ class WC_La_Poste_Tracking_Actions {
 					'DI2' => __( 'Delivered to Sender', 'tmsm-woocommerce-laposte-tracking'),
 				];
 
-				error_log('response ok = 200');
 				$response->code = $response->shipment->idShip;
 				$response->date = $response->shipment->event[0]->date;
 				$response->status = $tracking_statuses[$response->shipment->event[0]->code];
@@ -385,12 +393,9 @@ class WC_La_Poste_Tracking_Actions {
 	 */
 	public function save_meta_box_ajax() {
 
-		error_log('save_meta_box_ajax');
 		check_ajax_referer( 'create-tracking-item', 'security', true );
-		error_log('security ok');
 
 		if ( isset( $_POST['tracking_number'] ) && strlen( $_POST['tracking_number'] ) > 0 ) {
-			error_log('tracking_number ok');
 			$order_id = wc_clean( $_POST[ 'order_id' ] );
 			
 			$tracking = $this->get_shipment_tracking( $_POST['tracking_number'], $order_id );
@@ -743,7 +748,6 @@ class WC_La_Poste_Tracking_Actions {
 	 */
 	public function get_tracking_items( $order_id, $formatted = false ) {
 
-		global $wpdb;
 		$tracking_items = get_post_meta( $order_id, '_WC_La_Poste_Tracking_items', true );
 
 		if ( is_array( $tracking_items ) ) {
