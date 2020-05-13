@@ -1,9 +1,9 @@
 <?php
 /*
 	Plugin Name: TMSM WooCommerce La Poste Tracking
-	Plugin URI: http://www.nicolasmollet.com/
+	Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-laposte-tracking
 	Description: Add tracking number to order package and update status dynamically.
-	Version: 1.0.3
+	Version: 1.0.4
 	Author: Nicolas Mollet (see readme for additionnal authors)
 	Author URI: https://github.com/thermesmarins
 	Text Domain: tmsm-woocommerce-laposte-tracking

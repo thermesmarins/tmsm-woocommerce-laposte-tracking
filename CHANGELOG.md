@@ -1,3 +1,4 @@
+### 1.0.4: May 13th, 2020
 * Changed La Poste API version from v1 to v2. v1 would be obsolete by May 28th. 
 
 ### 1.0.3: June 28th, 2019
