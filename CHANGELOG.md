@@ -1,3 +1,7 @@
+### 1.0.5: May 13th, 2020
+* Update my account order page with tracking code even is API did not respond the data information, the customer can still click the tracking link
+* Update emails with tracking code even is API did not respond the data information, the customer can still click the tracking link
+
 ### 1.0.4: May 13th, 2020
 * Changed La Poste API version from v1 to v2. v1 would be obsolete by May 28th. 
 
