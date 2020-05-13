@@ -126,26 +126,29 @@ class WC_La_Poste_Tracking_Actions {
 			?>
 			<div class="tracking-item" id="tracking-item-<?php echo esc_attr( $item[ 'tracking_id' ] ); ?>">
 				<p class="tracking-content">
-					<strong><?php _e( 'Code', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $item[ 'tracking_number' ] ); ?>
+					<strong><?php _e( 'Code:', 'tmsm-woocommerce-laposte-tracking' ); ?> </strong><?php echo esc_html( $item[ 'tracking_number' ] ); ?>
 					<?php if( $item[ 'tracking_status' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Status', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $item[ 'tracking_status' ] ); ?>
+					<strong><?php _e( 'Status:', 'tmsm-woocommerce-laposte-tracking' ); ?> </strong><?php echo esc_html( $item[ 'tracking_status' ] ); ?>
 					<?php } ?>
 					<?php if( $item[ 'tracking_type' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Type', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_type' ] ) ); ?>
+					<strong><?php _e( 'Type:', 'tmsm-woocommerce-laposte-tracking' ); ?> </strong><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_type' ] ) ); ?>
 					<?php } ?>
 					<?php if( $item[ 'tracking_date' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Date', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_date' ] ) ); ?>
+					<strong><?php _e( 'Date:', 'tmsm-woocommerce-laposte-tracking' ); ?> </strong><?php
+					echo sprintf(__( '%1$s at %2$s', 'tmsm-woocommerce-laposte-tracking'), esc_html( date_i18n( get_option( 'date_format' ), $this->get_formatted_response( $item[ 'tracking_date' ] ) ) ), esc_html( date_i18n( get_option( 'time_format' ), $this->get_formatted_response( $item[ 'tracking_date' ] ) ) )) ;
+					?>
+
 					<?php } ?>
 					<?php if( $item[ 'tracking_message' ] != '') { ?>
 					<br />
-					<strong><?php _e( 'Message', 'tmsm-woocommerce-laposte-tracking' ); ?> : </strong><em><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_message' ] ) ); ?></em>
+					<strong><?php _e( 'Message:', 'tmsm-woocommerce-laposte-tracking' ); ?> </strong><em><?php echo esc_html( $this->get_formatted_response( $item[ 'tracking_message' ] ) ); ?></em>
 					<?php } ?>
 				</p>
 				<p class="meta">
-					<?php echo esc_html( sprintf( __( 'Shipped on %s', 'tmsm-woocommerce-laposte-tracking' ), date_i18n( 'Y-m-d', $item[ 'date_shipped' ] ) ) ); ?>
+					<?php echo esc_html( sprintf( __( 'Shipped on %s', 'tmsm-woocommerce-laposte-tracking' ), date_i18n( get_option( 'date_format' ), $item[ 'date_shipped' ] ) ) ); ?>
 					<?php if( strlen( $item[ 'tracking_link' ] ) > 0 ) : ?>
 						| <?php echo sprintf( '<a href="%s" target="_blank" title="' . esc_attr( __( 'Click here to track your shipment', 'tmsm-woocommerce-laposte-tracking' ) ) . '">' . __( 'Track', 'tmsm-woocommerce-laposte-tracking' ) . '</a>', $item[ 'tracking_link' ] ); ?>
 					<?php endif; ?>
@@ -272,6 +275,8 @@ class WC_La_Poste_Tracking_Actions {
 
 		$options = get_option( 'woocommerce_la_poste_tracking_settings', array() );
 
+		/*
+		// v1
 		$endpoint = 'https://api.laposte.fr/suivi/v1';
 		$request  = "code=" . $code;
 		$headers  = array( 
@@ -283,11 +288,64 @@ class WC_La_Poste_Tracking_Actions {
 		$response      = wp_remote_get( $endpoint . '?' . $request, array(
 			'timeout' => 70,
 			'headers' => $headers,
+		) );*/
+
+		// v2
+		$endpoint = 'https://api.laposte.fr/suivi/v2/idships';
+
+		error_log( 'endpoint '. $endpoint );
+
+		$headers  = array(
+			'X-Okapi-Key' => $options['api_key'],
+			'Content-Type' => 'application/json',
+			'Accept' => 'application/json'
+		);
+
+		$response = wp_remote_get( $endpoint . '/' . $code, array(
+			'timeout' => 70,
+			'headers' => $headers,
 		) );
+
+
 		$response_code = wp_remote_retrieve_response_code( $response );
 		$response = json_decode( $response['body'] );
 
 		error_log( print_r( $response, true ) );
+
+		if( !empty($response) && !empty($response->returnCode)){
+			error_log('response is v2');
+			if($response->returnCode === 200){
+
+				$tracking_statuses = [
+					'DR1' => __( 'Information Received', 'tmsm-woocommerce-laposte-tracking'),
+					'PC1' => __( 'Acceptance', 'tmsm-woocommerce-laposte-tracking'),
+					'PC2' => __( 'Acceptance in Shipping Country', 'tmsm-woocommerce-laposte-tracking'),
+					'ET1' => __( 'Being Processed', 'tmsm-woocommerce-laposte-tracking'),
+					'ET2' => __( 'Being Processed in Shipping Country', 'tmsm-woocommerce-laposte-tracking'),
+					'ET3' => __( 'Being Processed in Final Country', 'tmsm-woocommerce-laposte-tracking'),
+					'ET4' => __( 'Being Processed in Transit Country', 'tmsm-woocommerce-laposte-tracking'),
+					'EP1' => __( 'Awaiting Delivery', 'tmsm-woocommerce-laposte-tracking'),
+					'DO1' => __( 'Into Customs', 'tmsm-woocommerce-laposte-tracking'),
+					'DO2' => __( 'Released by Customs', 'tmsm-woocommerce-laposte-tracking'),
+					'DO3' => __( 'Retained by Customs', 'tmsm-woocommerce-laposte-tracking'),
+					'PB1' => __( 'Ongoing Problem', 'tmsm-woocommerce-laposte-tracking'),
+					'PB2' => __( 'Problem Resolved', 'tmsm-woocommerce-laposte-tracking'),
+					'MD2' => __( 'Out for Delivery', 'tmsm-woocommerce-laposte-tracking'),
+					'ND1' => __( 'Failed Attempt', 'tmsm-woocommerce-laposte-tracking'),
+					'AG1' => __( 'Available for Pickup', 'tmsm-woocommerce-laposte-tracking'),
+					'RE1' => __( 'Returned to Sender', 'tmsm-woocommerce-laposte-tracking'),
+					'DI1' => __( 'Delivered', 'tmsm-woocommerce-laposte-tracking'),
+					'DI2' => __( 'Delivered to Sender', 'tmsm-woocommerce-laposte-tracking'),
+				];
+
+				error_log('response ok = 200');
+				$response->code = $response->shipment->idShip;
+				$response->date = $response->shipment->event[0]->date;
+				$response->status = $tracking_statuses[$response->shipment->event[0]->code];
+				$response->link = $response->shipment->url;
+				$response->type = $response->shipment->product;
+			}
+		}
 
 		return $response;
 
