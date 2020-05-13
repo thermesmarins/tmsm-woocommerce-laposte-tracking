@@ -96,7 +96,7 @@ class WC_La_Poste_Tracking_Actions {
 						'<a href="%s" target="_blank">%s</a><br />%s',
 						esc_url( $formatted['formatted_tracking_link' ] ),
 						esc_html( $tracking_item[ 'tracking_number' ] ), 
-						$this->get_formatted_response( esc_html( $tracking_item[ 'tracking_message' ] ) )
+						$this->get_formatted_response( esc_html( $tracking_item[ 'tracking_status' ] ) )
 					);
 				}
 			}
