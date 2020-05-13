@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2019-06-27 14:33+0200\n"
+"POT-Creation-Date: 2020-05-13 13:37+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: https://github.com/thermesmarins/\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.2.4\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -56,64 +56,143 @@ msgid "Enter with your API Sandbox Key (used for testing)."
 msgstr ""
 
 #: includes/class-wc-la-poste-tracking.php:129
-msgid "Code"
+msgid "Code:"
 msgstr ""
 
 #: includes/class-wc-la-poste-tracking.php:132
-#: templates/myaccount/view-order.php:24 templates/myaccount/view-order.php:38
-msgid "Status"
+msgid "Status:"
 msgstr ""
 
 #: includes/class-wc-la-poste-tracking.php:136
-msgid "Type"
+msgid "Type:"
 msgstr ""
 
 #: includes/class-wc-la-poste-tracking.php:140
-#: templates/myaccount/view-order.php:23 templates/myaccount/view-order.php:35
-msgid "Date"
+msgid "Date:"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:144
-msgid "Message"
+#: includes/class-wc-la-poste-tracking.php:141
+#, php-format
+msgid "%1$s at %2$s"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:148 templates/pip/tracking-info.php:28
+#: includes/class-wc-la-poste-tracking.php:147
+msgid "Message:"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:151 templates/pip/tracking-info.php:28
 #, php-format
 msgid "Shipped on %s"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:150 templates/pip/tracking-info.php:23
+#: includes/class-wc-la-poste-tracking.php:153 templates/pip/tracking-info.php:23
 msgid "Click here to track your shipment"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:150
+#: includes/class-wc-la-poste-tracking.php:153
 #: templates/myaccount/view-order.php:42 templates/pip/tracking-info.php:23
 msgid "Track"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:152
+#: includes/class-wc-la-poste-tracking.php:155
 msgid "Delete"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:179
+#: includes/class-wc-la-poste-tracking.php:182
 msgid "Add Tracking Number"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:195
+#: includes/class-wc-la-poste-tracking.php:198
 msgid "La Poste Tracking Number:"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:203
+#: includes/class-wc-la-poste-tracking.php:206
 msgid "Date shipped:"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:204
 #: includes/class-wc-la-poste-tracking.php:207
+#: includes/class-wc-la-poste-tracking.php:210
 msgid "Y-m-d"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:236
+#: includes/class-wc-la-poste-tracking.php:239
 msgid "Save Tracking Number"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:320
+msgid "Information Received"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:321
+msgid "Acceptance"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:322
+msgid "Acceptance in Shipping Country"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:323
+msgid "Being Processed"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:324
+msgid "Being Processed in Shipping Country"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:325
+msgid "Being Processed in Final Country"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:326
+msgid "Being Processed in Transit Country"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:327
+msgid "Awaiting Delivery"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:328
+msgid "Into Customs"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:329
+msgid "Released by Customs"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:330
+msgid "Retained by Customs"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:331
+msgid "Ongoing Problem"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:332
+msgid "Problem Resolved"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:333
+msgid "Out for Delivery"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:334
+msgid "Failed Attempt"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:335
+msgid "Available for Pickup"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:336
+msgid "Returned to Sender"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:337
+msgid "Delivered"
+msgstr ""
+
+#: includes/class-wc-la-poste-tracking.php:338
+msgid "Delivered to Sender"
 msgstr ""
 
 #: includes/compats/class-wc-la-poste-tracking-pip-compat.php:45
@@ -133,13 +212,21 @@ msgstr ""
 msgid "Tracking Information"
 msgstr ""
 
-#: templates/email/tracking-info.php:22
+#: templates/email/tracking-info.php:25
 #, php-format
 msgid "Your product has been shipped. The tracking number is: %s"
 msgstr ""
 
 #: templates/myaccount/view-order.php:22 templates/myaccount/view-order.php:32
 msgid "Tracking Number"
+msgstr ""
+
+#: templates/myaccount/view-order.php:23 templates/myaccount/view-order.php:35
+msgid "Date"
+msgstr ""
+
+#: templates/myaccount/view-order.php:24 templates/myaccount/view-order.php:38
+msgid "Status"
 msgstr ""
 
 #: templates/myaccount/view-order.php:42
