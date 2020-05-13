@@ -255,19 +255,20 @@ class WC_La_Poste_Tracking_Actions {
 		wp_enqueue_script( 'wc-la-poste-tracking-js', $GLOBALS['WC_La_Poste_Tracking']->plugin_url . '/assets/js/admin.min.js' );
 
 	}
-	
+
 	/**
 	 * Get shipment tracking via the API
 	 *
 	 * Function to get the shipment tracking
+	 *
+	 * @param string $code
+	 * @param int $order_id
+	 *
+	 * @return array|mixed|void|WP_Error
 	 */
-	public function get_shipment_tracking( $code = '' ) {
-		
-		global $post;
-		if ( empty( $post ) ) {
-			return;
-		}
-		$order_id = $post->ID;
+	public function get_shipment_tracking( string $code = '', int $order_id ) {
+
+		error_log( 'get_shipment_tracking '. $code );
 
 		$options = get_option( 'woocommerce_la_poste_tracking_settings', array() );
 
@@ -285,7 +286,9 @@ class WC_La_Poste_Tracking_Actions {
 		) );
 		$response_code = wp_remote_retrieve_response_code( $response );
 		$response = json_decode( $response['body'] );
-		
+
+		error_log( print_r( $response, true ) );
+
 		return $response;
 
 	}
@@ -294,12 +297,15 @@ class WC_La_Poste_Tracking_Actions {
 	 * Order Tracking Save
 	 *
 	 * Function for saving tracking items
+	 *
+	 * @param int $order_id
+	 * @param WP_Post $post
 	 */
-	public function save_meta_box( $post_id, $post ) {
+	public function save_meta_box( $order_id, $post ) {
 
 		if ( isset( $_POST['tracking_number'] ) && strlen( $_POST['tracking_number'] ) > 0 ) {
 
-			$tracking = $this->get_shipment_tracking( $_POST['tracking_number'] );
+			$tracking = $this->get_shipment_tracking( $_POST['tracking_number'], $order_id );
 			$args = array(
 				'tracking_number'          => wc_clean( $_POST[ 'tracking_number' ] ),
 				'tracking_status'          => $tracking->status ?? null,
@@ -310,7 +316,7 @@ class WC_La_Poste_Tracking_Actions {
 				'date_shipped'             => wc_clean( $_POST[ 'date_shipped' ] )
 			);
 
-			$this->add_tracking_item( $post_id, $args );
+			$this->add_tracking_item( $order_id, $args );
 		}
 	}
 
@@ -321,13 +327,15 @@ class WC_La_Poste_Tracking_Actions {
 	 */
 	public function save_meta_box_ajax() {
 
+		error_log('save_meta_box_ajax');
 		check_ajax_referer( 'create-tracking-item', 'security', true );
+		error_log('security ok');
 
 		if ( isset( $_POST['tracking_number'] ) && strlen( $_POST['tracking_number'] ) > 0 ) {
-
+			error_log('tracking_number ok');
 			$order_id = wc_clean( $_POST[ 'order_id' ] );
 			
-			$tracking = $this->get_shipment_tracking( $_POST['tracking_number'] );
+			$tracking = $this->get_shipment_tracking( $_POST['tracking_number'], $order_id );
 
 			$args = array(
 				'tracking_number'          => wc_clean( $_POST[ 'tracking_number' ] ),
@@ -420,14 +428,15 @@ class WC_La_Poste_Tracking_Actions {
 		foreach ( $query->posts as $order_post ) {
 
 			$order = new WC_Order( $order_post );
-			$shipments = get_post_meta( $order->get_id(), '_WC_La_Poste_Tracking_items', true );
+			$order_id = $order->get_id();
+			$shipments = get_post_meta( $order_id, '_WC_La_Poste_Tracking_items', true );
 			
 			foreach( $shipments as $shipment ) {
 				
 				// Check last status & last message only
 				if ( $shipment === end( $shipments )) {
 					
-					$new_shipment_data = $this->get_shipment_tracking( $shipment[ 'tracking_number' ] );
+					$new_shipment_data = $this->get_shipment_tracking( $shipment[ 'tracking_number' ], $order_id );
 
 					$new_shipment_status = null;
 					$new_shipment_message = null;
@@ -456,7 +465,7 @@ class WC_La_Poste_Tracking_Actions {
 							'date_shipped'             => wc_clean( $shipment[ 'tracking_date' ] )
 						);
 			
-						$this->add_tracking_item( $order->get_id(), $args );
+						$this->add_tracking_item( $order_id, $args );
 						
 					}
 				}
