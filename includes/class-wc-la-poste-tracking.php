@@ -322,7 +322,10 @@ class WC_La_Poste_Tracking_Actions {
 
 		$response = json_decode( $response['body'] );
 
+		error_log( print_r( $response, true ) );
+
 		if( !empty($response) && !empty($response->returnCode)){
+			error_log('response is v2');
 			if($response->returnCode === 200){
 
 				$tracking_statuses = [
@@ -347,6 +350,7 @@ class WC_La_Poste_Tracking_Actions {
 					'DI2' => __( 'Delivered to Sender', 'tmsm-woocommerce-laposte-tracking'),
 				];
 
+				error_log('response ok = 200');
 				$response->code = $response->shipment->idShip;
 				$response->date = $response->shipment->event[0]->date;
 				$response->status = $tracking_statuses[$response->shipment->event[0]->code];
