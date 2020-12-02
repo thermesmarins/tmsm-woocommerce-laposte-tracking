@@ -1,3 +1,5 @@
+* Remove build 1.0.0 zip
+
 ### 1.0.5: May 13th, 2020
 * Update my account order page with tracking code even is API did not respond the data information, the customer can still click the tracking link
 * Update emails with tracking code even is API did not respond the data information, the customer can still click the tracking link
