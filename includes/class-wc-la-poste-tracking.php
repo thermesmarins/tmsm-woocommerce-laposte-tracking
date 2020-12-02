@@ -475,7 +475,13 @@ class WC_La_Poste_Tracking_Actions {
 			'fields'      => 'ids',
 			'post_type'   => 'shop_order',
 			'post_status' 	 => 'wc-completed',
-
+			'date_query' => array(
+				array(
+					'column' => 'post_modified_gmt',
+					'after'     => apply_filters( 'wc_la_poste_tracking_status_check_period', '1 week ago'),
+					'inclusive' => true,
+				),
+			),
 			'meta_query' => array(
 				array(
 					'key'   	=> '_WC_La_Poste_Tracking_items',

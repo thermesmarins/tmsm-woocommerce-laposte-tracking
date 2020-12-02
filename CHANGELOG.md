@@ -1,4 +1,6 @@
 * Remove build 1.0.0 zip
+* Removed CSV Orders Export compatibility
+* Fix order filter to check for shipping updates
 
 ### 1.0.5: May 13th, 2020
 * Update my account order page with tracking code even is API did not respond the data information, the customer can still click the tracking link
