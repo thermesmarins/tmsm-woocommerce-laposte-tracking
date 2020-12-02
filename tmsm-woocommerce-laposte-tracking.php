@@ -66,10 +66,6 @@ if ( ! class_exists( 'WC_La_Poste_Tracking' ) ) {
 			add_action( 'wp_ajax_WC_La_Poste_Tracking_delete_item', array( $this->actions, 'meta_box_delete_tracking' ) );
 			add_action( 'wp_ajax_WC_La_Poste_Tracking_save_form', array( $this->actions, 'save_meta_box_ajax' ) );
 
-			// Customer / Order CSV Export column headers/data
-			add_filter( 'wc_customer_order_csv_export_order_headers', array( $this->actions, 'add_la_poste_tracking_info_to_csv_export_column_headers' ) );
-			add_filter( 'wc_customer_order_csv_export_order_row', array( $this->actions, 'add_la_poste_tracking_info_to_csv_export_column_data' ), 10, 3 );
-			
 			$subs_version = class_exists( 'WC_Subscriptions' ) && ! empty( WC_Subscriptions::$version ) ? WC_Subscriptions::$version : null;
 
 			// Prevent data being copied to subscriptions

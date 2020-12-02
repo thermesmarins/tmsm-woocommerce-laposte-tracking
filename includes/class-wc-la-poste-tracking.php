@@ -317,15 +317,14 @@ class WC_La_Poste_Tracking_Actions {
 
 		// Check for valid API request
 		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
-			return new \WP_Error( wp_remote_retrieve_response_code( $response ), wp_remote_retrieve_response_message( $response ) );
+			return new WP_Error( wp_remote_retrieve_response_code( $response ), wp_remote_retrieve_response_message( $response ) );
 		}
 
 		$response = json_decode( $response['body'] );
 
-		error_log( print_r( $response, true ) );
+		//error_log( print_r( $response, true ) );
 
 		if( !empty($response) && !empty($response->returnCode)){
-			error_log('response is v2');
 			if($response->returnCode === 200){
 
 				$tracking_statuses = [
@@ -350,7 +349,6 @@ class WC_La_Poste_Tracking_Actions {
 					'DI2' => __( 'Delivered to Sender', 'tmsm-woocommerce-laposte-tracking'),
 				];
 
-				error_log('response ok = 200');
 				$response->code = $response->shipment->idShip;
 				$response->date = $response->shipment->event[0]->date;
 				$response->status = $tracking_statuses[$response->shipment->event[0]->code];
@@ -413,7 +411,6 @@ class WC_La_Poste_Tracking_Actions {
 				'tracking_link'            => $tracking->link ?? 'https://www.laposte.fr/outils/suivre-vos-envois?code='.wc_clean( $_POST[ 'tracking_number' ] ),
 				'date_shipped'             => wc_clean( $_POST[ 'date_shipped' ] )
 			);
-
 			$tracking_item = $this->add_tracking_item( $order_id, $args );
 
 			$this->display_html_tracking_item_for_meta_box( $order_id, $tracking_item );
@@ -543,68 +540,6 @@ class WC_La_Poste_Tracking_Actions {
 		
 		do_action( 'wc_la_poste_tracking_after_automatic_update_check' );
 	
-	}
-
-	/**
-	 * Adds support for Customer/Order CSV Export by adding appropriate column headers
-	 *
-	 * @param array $headers existing array of header key/names for the CSV export
-	 * @return array
-	 */
-	public function add_la_poste_tracking_info_to_csv_export_column_headers( $headers ) {
-
-		$headers['la_poste_tracking'] = 'la_poste_tracking';
-		return $headers;
-	}
-
-	/**
-	 * Adds support for Customer/Order CSV Export by adding data for the column headers
-	 *
-	 * @param array $order_data generated order data matching the column keys in the header
-	 * @param WC_Order $order order being exported
-	 * @param \WC_CSV_Export_Generator $csv_generator instance
-	 * @return array
-	 */
-	public function add_la_poste_tracking_info_to_csv_export_column_data( $order_data, $order, $csv_generator ) {
-
-		$tracking_items   = $this->get_tracking_items( $order->get_id(), true );
-		$new_order_data   = array();
-		$one_row_per_item = false;
-
-		$la_poste_tracking_csv_output = '';
-
-		if ( count( $tracking_items ) > 0 ) {
-			foreach( $tracking_items as $item ) {
-				$pipe = null;
-				foreach( $item as $key => $value ) {
-					if ( $key == 'date_shipped' )
-						$value = date( 'Y-m-d', $value );
-					$la_poste_tracking_csv_output .= "$pipe$key:$value";
-					if ( !$pipe )
-						$pipe = '|';
-				}
-				$la_poste_tracking_csv_output .= ';';
-			}
-		}
-
-		if ( version_compare( wc_customer_order_csv_export()->get_version(), '4.0.0', '<' ) ) {
-			$one_row_per_item = ( 'default_one_row_per_item' === $csv_generator->order_format || 'legacy_one_row_per_item' === $csv_generator->order_format );
-		} elseif ( isset( $csv_generator->format_definition ) ) {
-			$one_row_per_item = 'item' === $csv_generator->format_definition['row_type'];
-		}
-
-		if ( $one_row_per_item ) {
-
-			foreach ( $order_data as $data ) {
-				$new_order_data[] = array_merge( (array) $data, array( 'la_poste_tracking' => $la_poste_tracking_csv_output ) );
-			}
-
-		} else {
-
-			$new_order_data = array_merge( $order_data, array( 'la_poste_tracking' => $la_poste_tracking_csv_output ) );
-		}
-
-		return $new_order_data;
 	}
 
 	/**

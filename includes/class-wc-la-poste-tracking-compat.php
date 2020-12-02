@@ -15,11 +15,9 @@ class WC_La_Poste_Tracking_Compat {
 
 		// Load built-in compat classes.
 		require_once( 'compats/class-wc-la-poste-tracking-pip-compat.php' );
-		require_once( 'compats/class-wc-la-poste-tracking-order-xml-export-compat.php' );
 
 		$compats = array(
 			'WC_La_Poste_Tracking_PIP_Compat',
-			'WC_La_Poste_Tracking_XML_Export_Compat',
 		);
 
 		/**

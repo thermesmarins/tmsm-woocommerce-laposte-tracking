@@ -11,7 +11,6 @@ To use this add-on you will have to get a personal API key on http://developer.l
 This add-on is compatible with the following WooCommerce official add-ons:
 * WooCommerce PIP (Print invoices and packages)
 * WooCommerce Subscriptions
-* WooCommerce Customer/Order CSV Export
 
 ### Authors
 
