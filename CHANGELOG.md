@@ -1,4 +1,6 @@
-### 1.0.6: December 02nd, 2020
+* Fix saving new shipment info
+
+### 1.0.6: December 2nd, 2020
 * Remove build 1.0.0 zip
 * Removed CSV Orders Export compatibility
 * Fix order filter to check for shipping updates

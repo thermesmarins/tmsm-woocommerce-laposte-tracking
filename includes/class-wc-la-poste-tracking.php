@@ -322,8 +322,6 @@ class WC_La_Poste_Tracking_Actions {
 
 		$response = json_decode( $response['body'] );
 
-		//error_log( print_r( $response, true ) );
-
 		if( !empty($response) && !empty($response->returnCode)){
 			if($response->returnCode === 200){
 
@@ -352,6 +350,7 @@ class WC_La_Poste_Tracking_Actions {
 				$response->code = $response->shipment->idShip;
 				$response->date = $response->shipment->event[0]->date;
 				$response->status = $tracking_statuses[$response->shipment->event[0]->code];
+				$response->message = $response->shipment->event[0]->label;
 				$response->link = $response->shipment->url;
 				$response->type = $response->shipment->product;
 			}
@@ -474,7 +473,7 @@ class WC_La_Poste_Tracking_Actions {
 		$args = array(
 			'fields'      => 'ids',
 			'post_type'   => 'shop_order',
-			'post_status' 	 => 'wc-completed',
+			'post_status' 	 => array('wc-completed', 'wc-processed'),
 			'date_query' => array(
 				array(
 					'column' => 'post_modified_gmt',
@@ -491,11 +490,13 @@ class WC_La_Poste_Tracking_Actions {
 		);
 		
 		$query = new WP_Query( $args );
+
 		if ( empty( $query->posts ) ) {
 			return;
 		}
 		
 		foreach ( $query->posts as $order_post ) {
+
 
 			$order = new WC_Order( $order_post );
 			$order_id = $order->get_id();
@@ -505,7 +506,6 @@ class WC_La_Poste_Tracking_Actions {
 				
 				// Check last status & last message only
 				if ( $shipment === end( $shipments )) {
-					
 					$new_shipment_data = $this->get_shipment_tracking( $shipment[ 'tracking_number' ], $order_id );
 
 					$new_shipment_status = null;
@@ -521,10 +521,10 @@ class WC_La_Poste_Tracking_Actions {
 						$new_shipment_message = $new_shipment_data->message;
 					}
 
-					if( $new_shipment_status == $current_shipment_status || $new_shipment_message == $current_shipment_message ) {
+					// If status and message are different, saving the new shipment into database
+					if( $new_shipment_status == $current_shipment_status && $new_shipment_message == $current_shipment_message ) {
 						return;
 					} else {
-						
 						$args = array(
 							'tracking_number'          => wc_clean( $shipment[ 'tracking_number' ] ),
 							'tracking_status'          => wc_clean( $new_shipment_status ),
