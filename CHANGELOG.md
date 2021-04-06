@@ -1,3 +1,4 @@
+### 1.0.7: April 6th, 2021
 * Fix saving new shipment info
 
 ### 1.0.6: December 2nd, 2020
