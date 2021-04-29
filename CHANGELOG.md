@@ -1,3 +1,6 @@
+### 1.0.8: April 29th, 2021
+* Fix tracking link was displayed multiple times in email
+
 ### 1.0.7: April 6th, 2021
 * Fix saving new shipment info
 
