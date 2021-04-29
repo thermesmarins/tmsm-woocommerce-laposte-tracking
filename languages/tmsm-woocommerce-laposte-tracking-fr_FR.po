@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2020-05-13 16:30+0200\n"
-"PO-Revision-Date: 2020-05-13 16:31+0200\n"
+"POT-Creation-Date: 2021-04-29 16:06+0200\n"
+"PO-Revision-Date: 2021-04-29 16:06+0200\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Wp Trads <contact@wolforg.eu>\n"
 "Language: fr_FR\n"
@@ -123,79 +123,79 @@ msgstr "d/m/Y"
 msgid "Save Tracking Number"
 msgstr "Enregistrer le numéro de suivi"
 
-#: includes/class-wc-la-poste-tracking.php:332
+#: includes/class-wc-la-poste-tracking.php:329
 msgid "Information Received"
 msgstr "Déclaratif réceptionné"
 
-#: includes/class-wc-la-poste-tracking.php:333
+#: includes/class-wc-la-poste-tracking.php:330
 msgid "Acceptance"
 msgstr "Pris en charge"
 
-#: includes/class-wc-la-poste-tracking.php:334
+#: includes/class-wc-la-poste-tracking.php:331
 msgid "Acceptance in Shipping Country"
 msgstr "Pris en charge dans le pays d’expédition\t"
 
-#: includes/class-wc-la-poste-tracking.php:335
+#: includes/class-wc-la-poste-tracking.php:332
 msgid "Being Processed"
 msgstr "En cours de traitement"
 
-#: includes/class-wc-la-poste-tracking.php:336
+#: includes/class-wc-la-poste-tracking.php:333
 msgid "Being Processed in Shipping Country"
 msgstr "En cours de traitement dans le pays d’expédition"
 
-#: includes/class-wc-la-poste-tracking.php:337
+#: includes/class-wc-la-poste-tracking.php:334
 msgid "Being Processed in Final Country"
 msgstr "En cours de traitement dans le pays de destination"
 
-#: includes/class-wc-la-poste-tracking.php:338
+#: includes/class-wc-la-poste-tracking.php:335
 msgid "Being Processed in Transit Country"
 msgstr "En cours de traitement dans un pays de transit"
 
-#: includes/class-wc-la-poste-tracking.php:339
+#: includes/class-wc-la-poste-tracking.php:336
 msgid "Awaiting Delivery"
 msgstr "En attente de présentation"
 
-#: includes/class-wc-la-poste-tracking.php:340
+#: includes/class-wc-la-poste-tracking.php:337
 msgid "Into Customs"
 msgstr "Entrée en Douane"
 
-#: includes/class-wc-la-poste-tracking.php:341
+#: includes/class-wc-la-poste-tracking.php:338
 msgid "Released by Customs"
 msgstr "Sortie de Douane"
 
-#: includes/class-wc-la-poste-tracking.php:342
+#: includes/class-wc-la-poste-tracking.php:339
 msgid "Retained by Customs"
 msgstr "Retenu en Douane"
 
-#: includes/class-wc-la-poste-tracking.php:343
+#: includes/class-wc-la-poste-tracking.php:340
 msgid "Ongoing Problem"
 msgstr "Problème en cours"
 
-#: includes/class-wc-la-poste-tracking.php:344
+#: includes/class-wc-la-poste-tracking.php:341
 msgid "Problem Resolved"
 msgstr "Problème résolu"
 
-#: includes/class-wc-la-poste-tracking.php:345
+#: includes/class-wc-la-poste-tracking.php:342
 msgid "Out for Delivery"
 msgstr "Mis en distribution"
 
-#: includes/class-wc-la-poste-tracking.php:346
+#: includes/class-wc-la-poste-tracking.php:343
 msgid "Failed Attempt"
 msgstr "Non distribuable"
 
-#: includes/class-wc-la-poste-tracking.php:347
+#: includes/class-wc-la-poste-tracking.php:344
 msgid "Available for Pickup"
 msgstr "En attente d’être retiré au guichet"
 
-#: includes/class-wc-la-poste-tracking.php:348
+#: includes/class-wc-la-poste-tracking.php:345
 msgid "Returned to Sender"
 msgstr "Retourné à l’expéditeur"
 
-#: includes/class-wc-la-poste-tracking.php:349
+#: includes/class-wc-la-poste-tracking.php:346
 msgid "Delivered"
 msgstr "Distribué"
 
-#: includes/class-wc-la-poste-tracking.php:350
+#: includes/class-wc-la-poste-tracking.php:347
 msgid "Delivered to Sender"
 msgstr "Distribué à l’expéditeur"
 

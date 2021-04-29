@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WooCommerce La Poste Tracking\n"
 "Report-Msgid-Bugs-To: https://remicorson.com\n"
-"POT-Creation-Date: 2020-05-13 16:30+0200\n"
+"POT-Creation-Date: 2021-04-29 16:06+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -119,79 +119,79 @@ msgstr ""
 msgid "Save Tracking Number"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:332
+#: includes/class-wc-la-poste-tracking.php:329
 msgid "Information Received"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:333
+#: includes/class-wc-la-poste-tracking.php:330
 msgid "Acceptance"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:334
+#: includes/class-wc-la-poste-tracking.php:331
 msgid "Acceptance in Shipping Country"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:335
+#: includes/class-wc-la-poste-tracking.php:332
 msgid "Being Processed"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:336
+#: includes/class-wc-la-poste-tracking.php:333
 msgid "Being Processed in Shipping Country"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:337
+#: includes/class-wc-la-poste-tracking.php:334
 msgid "Being Processed in Final Country"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:338
+#: includes/class-wc-la-poste-tracking.php:335
 msgid "Being Processed in Transit Country"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:339
+#: includes/class-wc-la-poste-tracking.php:336
 msgid "Awaiting Delivery"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:340
+#: includes/class-wc-la-poste-tracking.php:337
 msgid "Into Customs"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:341
+#: includes/class-wc-la-poste-tracking.php:338
 msgid "Released by Customs"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:342
+#: includes/class-wc-la-poste-tracking.php:339
 msgid "Retained by Customs"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:343
+#: includes/class-wc-la-poste-tracking.php:340
 msgid "Ongoing Problem"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:344
+#: includes/class-wc-la-poste-tracking.php:341
 msgid "Problem Resolved"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:345
+#: includes/class-wc-la-poste-tracking.php:342
 msgid "Out for Delivery"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:346
+#: includes/class-wc-la-poste-tracking.php:343
 msgid "Failed Attempt"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:347
+#: includes/class-wc-la-poste-tracking.php:344
 msgid "Available for Pickup"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:348
+#: includes/class-wc-la-poste-tracking.php:345
 msgid "Returned to Sender"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:349
+#: includes/class-wc-la-poste-tracking.php:346
 msgid "Delivered"
 msgstr ""
 
-#: includes/class-wc-la-poste-tracking.php:350
+#: includes/class-wc-la-poste-tracking.php:347
 msgid "Delivered to Sender"
 msgstr ""
 

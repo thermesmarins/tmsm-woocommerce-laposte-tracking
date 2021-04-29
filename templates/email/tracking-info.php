@@ -17,7 +17,9 @@ if ( $tracking_items ) : ?>
 	<h2><?php echo apply_filters( 'woocommerce_la_poste_tracking_my_orders_title',
 			__( 'Tracking Information', 'tmsm-woocommerce-laposte-tracking' ) ); ?></h2>
 	<?php
-	foreach ( $tracking_items as $tracking_item ) {
+
+	$tracking_item = $tracking_items[0] ?? null;
+	if( ! empty( $tracking_item ) ) {
 
 		?>
 		<p><?php echo __( 'Your package has been shipped. Your tracking code is:', 'tmsm-woocommerce-laposte-tracking' );?>

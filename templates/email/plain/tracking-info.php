@@ -19,7 +19,8 @@ if ( $tracking_items ) :
 
 		echo  "\n";
 
-		foreach ( $tracking_items as $tracking_item ) {
+		$tracking_item = $tracking_items[0] ?? null;
+		if( ! empty( $tracking_item ) ) {
 			
 			echo esc_html( $tracking_item[ 'tracking_number' ] ) . "\n";
 			echo esc_html( $tracking_item[ 'tracking_message' ] ) . "\n";
